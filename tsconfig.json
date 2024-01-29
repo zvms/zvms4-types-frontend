@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": false,
+    "declaration": true,
+    "declarationDir": "types",
+    "outDir": "dist",
+    "rootDir": "types"
+  },
+  "include": ["types/*"],
+  "buildOptions": {},
+  "files": ["types/index.d.ts"]
+}
