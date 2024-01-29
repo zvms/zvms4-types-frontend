@@ -1,0 +1,1 @@
+# ZVMS 4 Type Declaration

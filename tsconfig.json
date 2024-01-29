@@ -11,7 +11,7 @@
     "outDir": "dist",
     "rootDir": "types",
   },
-  "include": ["types/*"],
+  "include": ["types"],
   "buildOptions": {},
-  "files": ["types/index.d.ts"]
+  "exclude": ["node_modules", "dist"],
 }
