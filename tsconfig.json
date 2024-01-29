@@ -9,7 +9,7 @@
     "declaration": true,
     "declarationDir": "types",
     "outDir": "dist",
-    "rootDir": "types"
+    "rootDir": "types",
   },
   "include": ["types/*"],
   "buildOptions": {},
