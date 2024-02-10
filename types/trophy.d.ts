@@ -8,6 +8,7 @@ export interface Trophy {
   status: 'pending' | 'effective' | 'refused'
   members: TrophyMember[]
   creator: string // ObjectId
+  instructor: string // Leading Teacher
 }
 
 export type TrophyStatus = Trophy['status']
