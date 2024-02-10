@@ -259,6 +259,7 @@ interface Trophy {
   status: 'pending' | 'effective' | 'refused'
   members: TrophyMember[]
   creator: string // ObjectId
+  instructor: string // Leading Teacher
 }
 
 type TrophyStatus = Trophy['status']
