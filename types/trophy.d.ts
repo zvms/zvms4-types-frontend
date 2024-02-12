@@ -9,6 +9,8 @@ export interface Trophy {
   members: TrophyMember[]
   creator: string // ObjectId
   instructor: string // Leading Teacher
+  deadline: string // ISO 8601
+  createdAt: string // ISO 8601
 }
 
 export type TrophyStatus = Trophy['status']
