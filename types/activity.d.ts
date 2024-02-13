@@ -56,7 +56,7 @@ export type MemberActivityStatus = 'draft' | 'pending' | 'effective' | 'refused'
 
 export type ActivityStatus = 'pending' | 'effective' | 'refused'
 
-export type ActivityMode = 'on-campus' | 'off-campus' | 'large-scale'
+export type ActivityMode = 'on-campus' | 'off-campus' | 'scale-practice'
 
 export interface SpecifiedActivity extends Activity {
   type: 'specified'
@@ -76,7 +76,7 @@ export type SpecialActivityClassification = 'prize' | 'import' | 'club' | 'deduc
 
 export interface Special {
   classify: SpecialActivityClassification
-  mode: 'on-campus' | 'off-campus' | 'large-scale'
+  mode: 'on-campus' | 'off-campus' | 'scale-practice'
 }
 
 export interface PrizeSpecial extends Special {

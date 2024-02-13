@@ -10,6 +10,7 @@ export interface Trophy {
   creator: string // ObjectId
   instructor: string // Leading Teacher
   deadline: string // ISO 8601
+  time: string // ISO 8601
   createdAt: string // ISO 8601
 }
 
