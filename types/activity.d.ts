@@ -4,20 +4,11 @@ export interface Activity {
   name: string
   description: string
   members: ActivityMember[]
-  duration: number // Not higher than this value in members' field, hours.
   date: string // ISO-8601
   createdAt: string // ISO-8601
   updatedAt: string // ISO-8601
   creator: string // ObjectId
   status: ActivityStatus
-}
-
-export type ActivityQuery = {
-  _id: string
-  type: ActivityType
-  name: string
-  memberCounts: number
-  duration: number
 }
 
 export interface Registration {
@@ -56,7 +47,7 @@ export type MemberActivityStatus = 'draft' | 'pending' | 'effective' | 'refused'
 
 export type ActivityStatus = 'pending' | 'effective' | 'refused'
 
-export type ActivityMode = 'on-campus' | 'off-campus' | 'scale-practice'
+export type ActivityMode = 'on-campus' | 'off-campus' | 'social-practice'
 
 export interface SpecifiedActivity extends Activity {
   type: 'specified'
@@ -76,7 +67,6 @@ export type SpecialActivityClassification = 'prize' | 'import' | 'club' | 'deduc
 
 export interface Special {
   classify: SpecialActivityClassification
-  mode: 'on-campus' | 'off-campus' | 'scale-practice'
 }
 
 export interface PrizeSpecial extends Special {
@@ -86,11 +76,11 @@ export interface PrizeSpecial extends Special {
 
 export interface ImportSpecial extends Special {
   classify: 'import'
+  origin: string // Path to the file.
 }
 
 export interface ClubSpecial extends Special {
   classify: 'club'
-  mode: 'on-campus' | 'off-campus'
 }
 
 export interface DeductionSpecial extends Special {
@@ -108,7 +98,6 @@ export type SpecialInstance =
 export interface SpecialActivity extends Activity {
   type: 'special'
   special: SpecialInstance
-  mode: ActivityMode
 }
 
 export type ActivityInstance = SpecifiedActivity | SocialActivity | ScaleActivity | SpecialActivity

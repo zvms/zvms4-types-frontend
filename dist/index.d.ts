@@ -4,20 +4,11 @@ interface Activity {
   name: string
   description: string
   members: ActivityMember[]
-  duration: number // Not higher than this value in members' field, hours.
   date: string // ISO-8601
   createdAt: string // ISO-8601
   updatedAt: string // ISO-8601
   creator: string // ObjectId
   status: ActivityStatus
-}
-
-type ActivityQuery = {
-  _id: string
-  type: ActivityType
-  name: string
-  memberCounts: number
-  duration: number
 }
 
 interface Registration {
@@ -56,7 +47,7 @@ type MemberActivityStatus = 'draft' | 'pending' | 'effective' | 'refused' | 'rej
 
 type ActivityStatus = 'pending' | 'effective' | 'refused'
 
-type ActivityMode = 'on-campus' | 'off-campus' | 'scale-practice'
+type ActivityMode = 'on-campus' | 'off-campus' | 'social-practice'
 
 interface SpecifiedActivity extends Activity {
   type: 'specified'
@@ -76,7 +67,6 @@ type SpecialActivityClassification = 'prize' | 'import' | 'club' | 'deduction' |
 
 interface Special {
   classify: SpecialActivityClassification
-  mode: 'on-campus' | 'off-campus' | 'scale-practice'
 }
 
 interface PrizeSpecial extends Special {
@@ -86,11 +76,11 @@ interface PrizeSpecial extends Special {
 
 interface ImportSpecial extends Special {
   classify: 'import'
+  origin: string // Path to the file.
 }
 
 interface ClubSpecial extends Special {
   classify: 'club'
-  mode: 'on-campus' | 'off-campus'
 }
 
 interface DeductionSpecial extends Special {
@@ -108,7 +98,6 @@ type SpecialInstance =
 interface SpecialActivity extends Activity {
   type: 'special'
   special: SpecialInstance
-  mode: ActivityMode
 }
 
 type ActivityInstance = SpecifiedActivity | SocialActivity | ScaleActivity | SpecialActivity
@@ -315,4 +304,4 @@ interface UserActivityTimeSums {
   largeScale: number
 }
 
-export type { Activity, ActivityInstance, ActivityMember, ActivityMemberHistory, ActivityMode, ActivityQuery, ActivityStatus, ActivityType, BadGatewayResponse, BadRequestResponse, BraodcastNotification, Class, ClassRegistration, ClassType, ClubSpecial, ConflictResponse, DeductionSpecial, ErrorResponse, ErrorResponseInstance, Feedback, ForbiddenResponse, GatewayTimeoutResponse, ImportSpecial, InternalErrorResponse, LoginResult, LongTermToken, MemberActivityStatus, NotFoundResponse, NotImplementedResponse, Notification, NotificationInstance, PrizeSpecial, Registration, Response, ScaleActivity, SendNotification, ServiceUnavailableResponse, ShortTermToken, SocialActivity, SocialPractice, Special, SpecialActivity, SpecialActivityClassification, SpecialInstance, SpecifiedActivity, SuccessResponse, Trophy, TrophyAward, TrophyLevel, TrophyMember, TrophyStatus, TrophyType, UnauthorizedResponse, UnknownResponse, User, UserActivityTimeSums, UserLogin, UserPosition, WithPassword };
+export type { Activity, ActivityInstance, ActivityMember, ActivityMemberHistory, ActivityMode, ActivityStatus, ActivityType, BadGatewayResponse, BadRequestResponse, BraodcastNotification, Class, ClassRegistration, ClassType, ClubSpecial, ConflictResponse, DeductionSpecial, ErrorResponse, ErrorResponseInstance, Feedback, ForbiddenResponse, GatewayTimeoutResponse, ImportSpecial, InternalErrorResponse, LoginResult, LongTermToken, MemberActivityStatus, NotFoundResponse, NotImplementedResponse, Notification, NotificationInstance, PrizeSpecial, Registration, Response, ScaleActivity, SendNotification, ServiceUnavailableResponse, ShortTermToken, SocialActivity, SocialPractice, Special, SpecialActivity, SpecialActivityClassification, SpecialInstance, SpecifiedActivity, SuccessResponse, Trophy, TrophyAward, TrophyLevel, TrophyMember, TrophyStatus, TrophyType, UnauthorizedResponse, UnknownResponse, User, UserActivityTimeSums, UserLogin, UserPosition, WithPassword };
