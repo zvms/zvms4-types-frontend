@@ -56,7 +56,7 @@ type MemberActivityStatus = 'draft' | 'pending' | 'effective' | 'refused' | 'rej
 
 type ActivityStatus = 'pending' | 'effective' | 'refused'
 
-type ActivityMode = 'on-campus' | 'off-campus' | 'large-scale'
+type ActivityMode = 'on-campus' | 'off-campus' | 'scale-practice'
 
 interface SpecifiedActivity extends Activity {
   type: 'specified'
@@ -76,7 +76,7 @@ type SpecialActivityClassification = 'prize' | 'import' | 'club' | 'deduction' |
 
 interface Special {
   classify: SpecialActivityClassification
-  mode: 'on-campus' | 'off-campus' | 'large-scale'
+  mode: 'on-campus' | 'off-campus' | 'scale-practice'
 }
 
 interface PrizeSpecial extends Special {
@@ -260,6 +260,9 @@ interface Trophy {
   members: TrophyMember[]
   creator: string // ObjectId
   instructor: string // Leading Teacher
+  deadline: string // ISO 8601
+  time: string // ISO 8601
+  createdAt: string // ISO 8601
 }
 
 type TrophyStatus = Trophy['status']
