@@ -301,7 +301,8 @@ interface ClassType {
 interface UserActivityTimeSums {
   onCampus: number
   offCampus: number
-  largeScale: number
+  socialPractice: number
+  trophy: number
 }
 
 export type { Activity, ActivityInstance, ActivityMember, ActivityMemberHistory, ActivityMode, ActivityStatus, ActivityType, BadGatewayResponse, BadRequestResponse, BraodcastNotification, Class, ClassRegistration, ClassType, ClubSpecial, ConflictResponse, DeductionSpecial, ErrorResponse, ErrorResponseInstance, Feedback, ForbiddenResponse, GatewayTimeoutResponse, ImportSpecial, InternalErrorResponse, LoginResult, LongTermToken, MemberActivityStatus, NotFoundResponse, NotImplementedResponse, Notification, NotificationInstance, PrizeSpecial, Registration, Response, ScaleActivity, SendNotification, ServiceUnavailableResponse, ShortTermToken, SocialActivity, SocialPractice, Special, SpecialActivity, SpecialActivityClassification, SpecialInstance, SpecifiedActivity, SuccessResponse, Trophy, TrophyAward, TrophyLevel, TrophyMember, TrophyStatus, TrophyType, UnauthorizedResponse, UnknownResponse, User, UserActivityTimeSums, UserLogin, UserPosition, WithPassword };

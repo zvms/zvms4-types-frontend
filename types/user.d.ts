@@ -29,5 +29,6 @@ export interface ClassType {
 export interface UserActivityTimeSums {
   onCampus: number
   offCampus: number
-  largeScale: number
+  socialPractice: number
+  trophy: number
 }
