@@ -14,6 +14,7 @@ export interface Activity {
 export interface Registration {
   deadline: string // ISO-8601
   place: string
+  duration: number // Predicted duration in hours.
   classes: ClassRegistration[]
 }
 
