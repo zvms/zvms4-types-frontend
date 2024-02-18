@@ -22,7 +22,7 @@ export interface Registration {
 }
 
 export interface ClassRegistration {
-  class: number
+  classid: number
   min?: number
   max: number
 }

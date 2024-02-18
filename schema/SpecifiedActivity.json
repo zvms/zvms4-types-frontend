@@ -109,7 +109,7 @@
     "ClassRegistration": {
       "type": "object",
       "properties": {
-        "class": {
+        "classid": {
           "type": "number"
         },
         "min": {
@@ -120,7 +120,7 @@
         }
       },
       "required": [
-        "class",
+        "classid",
         "max"
       ]
     },
