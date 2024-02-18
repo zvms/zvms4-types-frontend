@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "award": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "off-campus",
+        "on-campus"
+      ],
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "effective",
+        "pending",
+        "refused"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "_id",
+    "award",
+    "mode",
+    "status"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

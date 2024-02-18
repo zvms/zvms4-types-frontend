@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "onCampus": {
+      "type": "number"
+    },
+    "offCampus": {
+      "type": "number"
+    },
+    "socialPractice": {
+      "type": "number"
+    },
+    "trophy": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "offCampus",
+    "onCampus",
+    "socialPractice",
+    "trophy"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

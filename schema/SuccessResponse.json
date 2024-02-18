@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "const": "ok"
+    },
+    "data": {
+      "$ref": "#/definitions/T"
+    },
+    "code": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "code",
+    "data",
+    "status"
+  ],
+  "definitions": {
+    "T": {
+      "type": "object"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

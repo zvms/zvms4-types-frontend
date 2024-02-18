@@ -1,15 +1,18 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "NodeNext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": false,
     "declaration": true,
-    "declarationDir": "src",
+    "declarationDir": "types",
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "types",
+    "lib": ["ESNext"],
+    "moduleResolution": "NodeNext",
+    
   },
   "include": ["types"],
   "buildOptions": {},

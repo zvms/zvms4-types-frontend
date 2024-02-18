@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": [
+        "J",
+        "Z"
+      ],
+      "type": "string"
+    },
+    "grade": {
+      "type": "number"
+    },
+    "year": {
+      "type": "number"
+    },
+    "class": {
+      "type": "number"
+    },
+    "number": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "class",
+    "grade",
+    "number",
+    "type",
+    "year"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

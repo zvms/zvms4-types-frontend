@@ -1,6 +1,6 @@
 export interface Activity {
   _id: string
-  type: ActivityType
+  type: 'specified' | 'special' | 'social' | 'scale'
   name: string
   description: string
   members: ActivityMember[]
@@ -8,7 +8,10 @@ export interface Activity {
   createdAt: string // ISO-8601
   updatedAt: string // ISO-8601
   creator: string // ObjectId
-  status: ActivityStatus
+  status: 'pending' | 'effective' | 'refused'
+  url?: string // FTP Social Practice Report Location.
+  special?: SpecialInstance
+  registration?: Registration
 }
 
 export interface Registration {
@@ -26,9 +29,9 @@ export interface ClassRegistration {
 
 export interface ActivityMember {
   _id: string // ObjectId
-  status: MemberActivityStatus
+  status: 'draft' | 'pending' | 'effective' | 'refused' | 'rejected'
   impression: string
-  mode: ActivityMode
+  mode: 'on-campus' | 'off-campus' | 'social-practice'
   duration: number
   history: ActivityMemberHistory[]
   images: string[]
@@ -39,16 +42,16 @@ export interface ActivityMemberHistory {
   duration: number // hours
   time: string // ISO-8601
   actioner: string // ObjectId
-  action: MemberActivityStatus
+  action: 'draft' | 'pending' | 'effective' | 'refused' | 'rejected'
 }
 
-export type ActivityType = 'specified' | 'special' | 'social' | 'scale'
+export type ActivityType = Activity['type']
 
-export type MemberActivityStatus = 'draft' | 'pending' | 'effective' | 'refused' | 'rejected'
+export type MemberActivityStatus = ActivityMember['status']
 
-export type ActivityStatus = 'pending' | 'effective' | 'refused'
+export type ActivityStatus = Activity['status']
 
-export type ActivityMode = 'on-campus' | 'off-campus' | 'social-practice'
+export type ActivityMode = ActivityMember['mode']
 
 export interface SpecifiedActivity extends Activity {
   type: 'specified'
@@ -64,11 +67,14 @@ export interface ScaleActivity extends Activity {
   url: string // FTP Social Practice Report Location.
 }
 
-export type SpecialActivityClassification = 'prize' | 'import' | 'club' | 'deduction' | 'other'
-
 export interface Special {
-  classify: SpecialActivityClassification
+  classify: 'prize' | 'import' | 'club' | 'deduction' | 'other'
+  prize?: string // ObjectId
+  origin?: string // Path to the file.
+  reason?: string
 }
+
+export type SpecialActivityClassification = Special['classify']
 
 export interface PrizeSpecial extends Special {
   classify: 'prize'

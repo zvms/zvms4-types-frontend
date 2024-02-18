@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "global": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string"
+    },
+    "publisher": {
+      "type": "string"
+    },
+    "receivers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "route": {
+      "type": "string"
+    },
+    "anonymous": {
+      "type": "boolean"
+    },
+    "expire": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "important",
+        "normal",
+        "pin"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "_id",
+    "anonymous",
+    "content",
+    "expire",
+    "global",
+    "publisher",
+    "time",
+    "title",
+    "type"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

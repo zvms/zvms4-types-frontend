@@ -4,6 +4,7 @@
   "description": "",
   "main": "types/index.d.ts",
   "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c --bundleConfigAsCjs"
@@ -16,5 +17,9 @@
     "rollup": "^4.9.6",
     "rollup-plugin-dts": "^6.1.0",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "glob": "^10.3.10",
+    "typescript-json-schema": "^0.63.0"
   }
 }

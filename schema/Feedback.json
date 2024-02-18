@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string"
+    },
+    "publisher": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "_id",
+    "content",
+    "publisher",
+    "time",
+    "title"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

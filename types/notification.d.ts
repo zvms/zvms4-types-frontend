@@ -5,7 +5,7 @@ export interface Notification {
   content: string
   time: string // ISO-8601
   publisher: string
-  receivers: string[] // ObjectId[]
+  receivers?: string[] // ObjectId[]
   route?: string // Route to URL
   anonymous: boolean
   expire: string // ISO-8601

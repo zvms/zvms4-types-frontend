@@ -1,0 +1,133 @@
+{
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "academic",
+        "art",
+        "others",
+        "sports"
+      ],
+      "type": "string"
+    },
+    "level": {
+      "enum": [
+        "city",
+        "district",
+        "international",
+        "national",
+        "province"
+      ],
+      "type": "string"
+    },
+    "awards": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/TrophyAward"
+      }
+    },
+    "team": {
+      "type": "boolean"
+    },
+    "status": {
+      "enum": [
+        "effective",
+        "pending",
+        "refused"
+      ],
+      "type": "string"
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/TrophyMember"
+      }
+    },
+    "creator": {
+      "type": "string"
+    },
+    "instructor": {
+      "type": "string"
+    },
+    "deadline": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "_id",
+    "awards",
+    "createdAt",
+    "creator",
+    "deadline",
+    "instructor",
+    "level",
+    "members",
+    "name",
+    "status",
+    "team",
+    "time",
+    "type"
+  ],
+  "definitions": {
+    "TrophyAward": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "duration",
+        "name"
+      ]
+    },
+    "TrophyMember": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "award": {
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "off-campus",
+            "on-campus"
+          ],
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "effective",
+            "pending",
+            "refused"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "award",
+        "mode",
+        "status"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

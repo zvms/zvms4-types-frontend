@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "id": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sex": {
+      "enum": [
+        "female",
+        "male",
+        "unknown"
+      ],
+      "type": "string"
+    },
+    "position": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "admin",
+          "auditor",
+          "department",
+          "secretary",
+          "student",
+          "system"
+        ],
+        "type": "string"
+      }
+    },
+    "code": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "_id",
+    "code",
+    "id",
+    "name",
+    "position",
+    "sex"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

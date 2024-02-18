@@ -1,0 +1,90 @@
+{
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "effective",
+        "pending",
+        "refused",
+        "rejected"
+      ],
+      "type": "string"
+    },
+    "impression": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "off-campus",
+        "on-campus",
+        "social-practice"
+      ],
+      "type": "string"
+    },
+    "duration": {
+      "type": "number"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ActivityMemberHistory"
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "_id",
+    "duration",
+    "history",
+    "images",
+    "impression",
+    "mode",
+    "status"
+  ],
+  "definitions": {
+    "ActivityMemberHistory": {
+      "type": "object",
+      "properties": {
+        "impression": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "time": {
+          "type": "string"
+        },
+        "actioner": {
+          "type": "string"
+        },
+        "action": {
+          "enum": [
+            "draft",
+            "effective",
+            "pending",
+            "refused",
+            "rejected"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "actioner",
+        "duration",
+        "impression",
+        "time"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

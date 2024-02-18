@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "deadline": {
+      "type": "string"
+    },
+    "place": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "number"
+    },
+    "classes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ClassRegistration"
+      }
+    }
+  },
+  "required": [
+    "classes",
+    "deadline",
+    "duration",
+    "place"
+  ],
+  "definitions": {
+    "ClassRegistration": {
+      "type": "object",
+      "properties": {
+        "class": {
+          "type": "number"
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "class",
+        "max"
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
