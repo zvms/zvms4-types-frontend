@@ -312,4 +312,12 @@ interface UserActivityTimeSums {
   trophy: number
 }
 
-export type { Activity, ActivityInstance, ActivityMember, ActivityMemberHistory, ActivityMode, ActivityStatus, ActivityType, BadGatewayResponse, BadRequestResponse, BraodcastNotification, Class, ClassRegistration, ClassType, ClubSpecial, ConflictResponse, DeductionSpecial, ErrorResponse, ErrorResponseInstance, Feedback, ForbiddenResponse, GatewayTimeoutResponse, ImportSpecial, InternalErrorResponse, LoginResult, LongTermToken, MemberActivityStatus, NotFoundResponse, NotImplementedResponse, Notification, NotificationInstance, PrizeSpecial, Registration, Response, ScaleActivity, SendNotification, ServiceUnavailableResponse, ShortTermToken, SocialActivity, SocialPractice, Special, SpecialActivity, SpecialActivityClassification, SpecialInstance, SpecifiedActivity, SuccessResponse, Trophy, TrophyAward, TrophyLevel, TrophyMember, TrophyStatus, TrophyType, UnauthorizedResponse, UnknownResponse, User, UserActivityTimeSums, UserLogin, UserPosition, WithPassword };
+interface Group {
+  _id: string; // ObjectId
+  name: string;
+  type: "class" | "permission" | "group";
+  description?: string;
+  permissions: UserPosition[];
+}
+
+export type { Activity, ActivityInstance, ActivityMember, ActivityMemberHistory, ActivityMode, ActivityStatus, ActivityType, BadGatewayResponse, BadRequestResponse, BraodcastNotification, Class, ClassRegistration, ClassType, ClubSpecial, ConflictResponse, DeductionSpecial, ErrorResponse, ErrorResponseInstance, Feedback, ForbiddenResponse, GatewayTimeoutResponse, Group, ImportSpecial, InternalErrorResponse, LoginResult, LongTermToken, MemberActivityStatus, NotFoundResponse, NotImplementedResponse, Notification, NotificationInstance, PrizeSpecial, Registration, Response, ScaleActivity, SendNotification, ServiceUnavailableResponse, ShortTermToken, SocialActivity, SocialPractice, Special, SpecialActivity, SpecialActivityClassification, SpecialInstance, SpecifiedActivity, SuccessResponse, Trophy, TrophyAward, TrophyLevel, TrophyMember, TrophyStatus, TrophyType, UnauthorizedResponse, UnknownResponse, User, UserActivityTimeSums, UserLogin, UserPosition, WithPassword };
