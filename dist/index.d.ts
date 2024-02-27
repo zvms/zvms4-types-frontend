@@ -1,6 +1,6 @@
 interface Activity {
   _id: string
-  type: ActivityType
+  type: 'specified' | 'special' | 'social' | 'scale'
   name: string
   description: string
   members: ActivityMember[]
@@ -8,7 +8,10 @@ interface Activity {
   createdAt: string // ISO-8601
   updatedAt: string // ISO-8601
   creator: string // ObjectId
-  status: ActivityStatus
+  status: 'pending' | 'effective' | 'refused'
+  url?: string // FTP Social Practice Report Location.
+  special?: SpecialInstance
+  registration?: Registration
 }
 
 interface Registration {
@@ -19,16 +22,16 @@ interface Registration {
 }
 
 interface ClassRegistration {
-  class: number
+  classid: number
   min?: number
   max: number
 }
 
 interface ActivityMember {
   _id: string // ObjectId
-  status: MemberActivityStatus
+  status: 'draft' | 'pending' | 'effective' | 'refused' | 'rejected'
   impression: string
-  mode: ActivityMode
+  mode: 'on-campus' | 'off-campus' | 'social-practice'
   duration: number
   history: ActivityMemberHistory[]
   images: string[]
@@ -39,16 +42,16 @@ interface ActivityMemberHistory {
   duration: number // hours
   time: string // ISO-8601
   actioner: string // ObjectId
-  action: MemberActivityStatus
+  action: 'draft' | 'pending' | 'effective' | 'refused' | 'rejected'
 }
 
-type ActivityType = 'specified' | 'special' | 'social' | 'scale'
+type ActivityType = Activity['type']
 
-type MemberActivityStatus = 'draft' | 'pending' | 'effective' | 'refused' | 'rejected'
+type MemberActivityStatus = ActivityMember['status']
 
-type ActivityStatus = 'pending' | 'effective' | 'refused'
+type ActivityStatus = Activity['status']
 
-type ActivityMode = 'on-campus' | 'off-campus' | 'social-practice'
+type ActivityMode = ActivityMember['mode']
 
 interface SpecifiedActivity extends Activity {
   type: 'specified'
@@ -64,11 +67,14 @@ interface ScaleActivity extends Activity {
   url: string // FTP Social Practice Report Location.
 }
 
-type SpecialActivityClassification = 'prize' | 'import' | 'club' | 'deduction' | 'other'
-
 interface Special {
-  classify: SpecialActivityClassification
+  classify: 'prize' | 'import' | 'club' | 'deduction' | 'other'
+  prize?: string // ObjectId
+  origin?: string // Path to the file.
+  reason?: string
 }
+
+type SpecialActivityClassification = Special['classify']
 
 interface PrizeSpecial extends Special {
   classify: 'prize'
@@ -127,7 +133,7 @@ interface Notification {
   content: string
   time: string // ISO-8601
   publisher: string
-  receivers: string[] // ObjectId[]
+  receivers?: string[] // ObjectId[]
   route?: string // Route to URL
   anonymous: boolean
   expire: string // ISO-8601

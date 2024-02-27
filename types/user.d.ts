@@ -3,11 +3,11 @@ export interface User {
   id: number
   name: string
   sex: 'male' | 'female' | 'unknown'
-  position: ('system' | 'admin' | 'auditor' | 'department' | 'secretary' | 'student')[]
+  position: UserPosition[]
   code: number
 }
 
-export type UserPosition = User['position'][number]
+export type UserPosition = 'system' | 'admin' | 'auditor' | 'department' | 'secretary' | 'student'
 
 export type WithPassword<T> = {
   password: string
