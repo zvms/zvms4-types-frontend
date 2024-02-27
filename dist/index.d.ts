@@ -282,8 +282,7 @@ interface User {
   id: number
   name: string
   sex: 'male' | 'female' | 'unknown'
-  position: UserPosition[]
-  code: number
+  group: string[]
 }
 
 type UserPosition = 'system' | 'admin' | 'auditor' | 'department' | 'secretary' | 'student'
